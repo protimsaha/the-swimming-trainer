@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Swimming for keeds",
+        "description": "lorem dsd dsd ds ds d sd sd sd sd sd sd sd ds dd sd sd sd sd",
+        "price": 100
+    },
+    {
+        "id": 1,
+        "name": "Swimming for Adults",
+        "description": "lorem dsd dsd ds ds d sd sd sd sd sd sd sd ds dd sd sd sd sd",
+        "price": 100
+    },
+    {
+        "id": 1,
+        "name": "Swimming Guide as physiotherapy",
+        "description": "lorem dsd dsd ds ds d sd sd sd sd sd sd sd ds dd sd sd sd sd",
+        "price": 100
+    },
+    {
+        "id": 1,
+        "name": "Competitive Swimming",
+        "description": "lorem dsd dsd ds ds d sd sd sd sd sd sd sd ds dd sd sd sd sd",
+        "price": 100
+    },
+    {
+        "id": 1,
+        "name": "Regular Swimming",
+        "description": "lorem dsd dsd ds ds d sd sd sd sd sd sd sd ds dd sd sd sd sd",
+        "price": 100
+    },
+    {
+        "id": 1,
+        "name": "Family Swimming Pack",
+        "description": "lorem dsd dsd ds ds d sd sd sd sd sd sd sd ds dd sd sd sd sd",
+        "price": 100
+    }
+]
