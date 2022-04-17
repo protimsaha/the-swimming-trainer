@@ -1,0 +1,16 @@
+.service-book {
+    min-height: calc(100vh - 200px);
+}
+
+.booking {
+    margin: 300px;
+}
+
+.booking-btn {
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    background: linear-gradient(to right, hotpink, rgb(229, 15, 229));
+    color: white;
+    font-size: 20px;
+}

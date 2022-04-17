@@ -6,6 +6,10 @@ import Register from './Pages/Auth/Register/Register'
 import Header from './Pages/Shared/Header/Header';
 import Services from './Pages/Home/Services/Services';
 import Footer from './Pages/Shared/Footer/Footer';
+import ServiceBooking from './Pages/Home/Services/ServiceBooking/ServiceBooking';
+import NotFound from './Pages/Shared/NotFound/NotFound';
+import Booking from './Pages/Home/Services/Booking/Booking';
+import RequireAuth from './Pages/Auth/RequireAuth';
 
 function App() {
   return (
@@ -16,6 +20,17 @@ function App() {
         <Route path='login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/services' element={<Services></Services>}></Route>
+        <Route path='/services/:serviceId' element={
+          <RequireAuth>
+            <ServiceBooking></ServiceBooking>
+          </RequireAuth>
+        }></Route>
+        <Route path='/booking' element={
+          <RequireAuth>
+            <Booking></Booking>
+          </RequireAuth>
+        }></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
