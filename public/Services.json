@@ -1,37 +1,43 @@
 [
     {
         "id": 1,
-        "name": "Swimming for keeds",
+        "name": "Swimming for kids",
+        "photo": "https://i.pinimg.com/originals/7b/ff/2a/7bff2a212ceb6980ed0f62864a450d09.jpg",
         "description": "lorem dsd dsd ds ds d sd sd sd sd sd sd sd ds dd sd sd sd sd",
         "price": 100
     },
     {
-        "id": 1,
+        "id": 2,
         "name": "Swimming for Adults",
+        "photo": "https://i.pinimg.com/originals/7b/ff/2a/7bff2a212ceb6980ed0f62864a450d09.jpg",
         "description": "lorem dsd dsd ds ds d sd sd sd sd sd sd sd ds dd sd sd sd sd",
         "price": 100
     },
     {
-        "id": 1,
+        "id": 3,
         "name": "Swimming Guide as physiotherapy",
+        "photo": "https://i.pinimg.com/originals/7b/ff/2a/7bff2a212ceb6980ed0f62864a450d09.jpg",
         "description": "lorem dsd dsd ds ds d sd sd sd sd sd sd sd ds dd sd sd sd sd",
         "price": 100
     },
     {
-        "id": 1,
+        "id": 4,
         "name": "Competitive Swimming",
+        "photo": "https://i.pinimg.com/originals/7b/ff/2a/7bff2a212ceb6980ed0f62864a450d09.jpg",
         "description": "lorem dsd dsd ds ds d sd sd sd sd sd sd sd ds dd sd sd sd sd",
         "price": 100
     },
     {
-        "id": 1,
+        "id": 5,
         "name": "Regular Swimming",
+        "photo": "https://i.pinimg.com/originals/7b/ff/2a/7bff2a212ceb6980ed0f62864a450d09.jpg",
         "description": "lorem dsd dsd ds ds d sd sd sd sd sd sd sd ds dd sd sd sd sd",
         "price": 100
     },
     {
-        "id": 1,
+        "id": 6,
         "name": "Family Swimming Pack",
+        "photo": "https://i.pinimg.com/originals/7b/ff/2a/7bff2a212ceb6980ed0f62864a450d09.jpg",
         "description": "lorem dsd dsd ds ds d sd sd sd sd sd sd sd ds dd sd sd sd sd",
         "price": 100
     }

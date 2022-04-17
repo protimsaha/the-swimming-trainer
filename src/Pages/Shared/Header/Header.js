@@ -24,15 +24,15 @@ const Header = () => {
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <div className='links'>
                         <Link to='/'>Home</Link>
-                        <Link to='/home'>Home</Link>
                         <Link to='/services'>Services</Link>
                         <Link to='/blogs'>Blogs</Link>
                         <Link to='/about'>About Me</Link>
                         <p className='text-white'>{user?.displayName}</p>
-                        <img className='user-img' src={user?.photoURL} alt="" />
+                        {user?.photoURL ? <img className='user-img' src={user?.photoURL} alt="" /> : ''}
                         {
                             user?.uid ? <button className='logout' onClick={logout}>Logout</button> :
-                                <Link to='/login'>Login</Link>}
+                                <Link to='/login'>Login</Link>
+                        }
                     </div>
                 </div>
             </div>
