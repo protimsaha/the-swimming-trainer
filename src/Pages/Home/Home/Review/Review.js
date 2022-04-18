@@ -12,11 +12,11 @@ const Review = () => {
     }, [])
 
     return (
-        <div className='review-cont container'>
+        <div className='review-cont '>
             {
                 reviews.map(review =>
                     <div key={review.id} className="card review p-2">
-                        <img src={review.photo} className="card-img-top img-fluid" alt="..." />
+                        <img src={review.photo} className="card-img-top img-fluid rev-img" alt="..." />
                         <h4>{review.name}</h4>
                         <div className="card-body">
                             <p className="card-text">{review.review}</p>

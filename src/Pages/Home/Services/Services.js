@@ -7,7 +7,7 @@ const Services = () => {
 
     return (
         <div className='container'>
-            <h2>Available Services :{services.length} </h2>
+            <h2 className='text-center text-success'>Services</h2>
             <div className=' row  d-flex justify-content-between'>
                 {
                     services.map(service => <SingleService
