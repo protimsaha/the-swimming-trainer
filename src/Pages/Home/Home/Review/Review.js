@@ -19,7 +19,7 @@ const Review = () => {
                         <img src={review.photo} className="card-img-top img-fluid rev-img" alt="..." />
                         <h4>{review.name}</h4>
                         <div className="card-body">
-                            <p className="card-text">{review.review}</p>
+                            <p className="card-text fs-4">{review.review}</p>
                         </div>
                     </div>
                 )

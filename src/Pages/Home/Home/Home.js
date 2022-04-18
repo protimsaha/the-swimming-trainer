@@ -17,14 +17,14 @@ const Home = () => {
                 <Trainer></Trainer>
             </div>
             <h2 className='text-center my-4'>My Services</h2>
-            <div className='container row  d-flex justify-content-between'>
+            <div className='container review-cont  d-flex justify-content-between'>
                 {
                     twoServices.map(service => <ServiceForHome key={service.id} service={service}></ServiceForHome>)
                 }
             </div>
             <Link className='service-text w-25 btn btn-primary d-block mx-auto my-5' to='services'>See All Services</Link>
             <h3 className='my-4 text-center'>Look What my Customer Says</h3>
-            <div className='my-5 container row'>
+            <div className='my-5 container  d-flex justify-content-between'>
                 <Review></Review>
             </div>
         </div>

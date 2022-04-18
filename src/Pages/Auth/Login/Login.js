@@ -49,7 +49,7 @@ const Login = () => {
     }
 
     let errorElement;
-    if (googleError || githubError) {
+    if (error || googleError || githubError) {
         errorElement = error?.message;
     }
 
