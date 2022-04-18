@@ -25,11 +25,7 @@ function App() {
             <ServiceBooking></ServiceBooking>
           </RequireAuth>
         }></Route>
-        <Route path='/booking' element={
-          <RequireAuth>
-            <Booking></Booking>
-          </RequireAuth>
-        }></Route>
+        <Route path='/booking' element={<Booking></Booking>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

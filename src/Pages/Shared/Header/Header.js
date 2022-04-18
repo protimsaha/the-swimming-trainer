@@ -13,7 +13,6 @@ const Header = () => {
         signOut(auth)
     }
 
-
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light ">
             <div className="container-fluid nav-bg  ">

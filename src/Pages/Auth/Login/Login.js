@@ -1,49 +1,78 @@
-import React from 'react';
-import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Form } from 'react-bootstrap';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import auth from '../FirebaseInit/Firebase.init';
-import { useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 
 const Login = () => {
-
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
     const navigate = useNavigate()
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+    const [signInWithGoogle, googleUser, googleError] = useSignInWithGoogle(auth);
+    const [signInWithGithub, githubUser, githubError] = useSignInWithGithub(auth);
+
+    console.log(githubUser)
+
+    if (user || googleUser || githubUser) {
+        navigate(from, { replace: true } || '/')
+    }
+
+    const emailBlur = event => {
+        setEmail(event.target.value)
+    }
+
+    const passwordBlur = event => {
+        setPassword(event.target.value)
+    }
+
     const handleRegister = () => {
         navigate('/register')
     }
 
-    const [signInWithGoogle, user, error] = useSignInWithGoogle(auth);
-    console.log(user?.user, error)
 
-    const [signInWithGithub, githubUser, githubError] = useSignInWithGithub(auth);
 
-    if (user || githubUser) {
-        navigate('/')
-    }
+    // if (LogedinUser) {
+    //     navigate('/')
+    // }
 
     let errorElement;
-    if (error || githubError) {
-        errorElement = error.message;
+    if (googleError || githubError) {
+        errorElement = error?.message;
     }
+
+    const handleUserLogin = event => {
+        event.preventDefault()
+        signInWithEmailAndPassword(email, password)
+    }
+
+
     return (
-        <Form className='w-50 mx-auto border p-5 rounded my-5'>
+        <Form onSubmit={handleUserLogin} className='w-50 mx-auto border p-5 rounded my-5'>
             <h2 className='text-center'>Please Login!</h2>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" required />
+                <Form.Control onBlur={emailBlur} type="email" placeholder="Enter email" required />
 
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" required />
+                <Form.Control onBlur={passwordBlur} type="password" placeholder="Password" required />
             </Form.Group>
             <p className='text-danger'>{errorElement}</p>
             <p>New to my website? <span onClick={handleRegister} className='text-success' role={'button'}> Register</span></p>
-            <Button className='w-50 mx-auto d-block' variant="primary" type="submit">
-                Login
-            </Button>
+            <input className='w-50 mx-auto d-block btn btn-primary' value='Login' type="submit" />
             <div className='or my-3'>
                 <div style={{ height: '1px' }} className='bg-primary w-50'></div>
                 <p className='px-4 mt-2'>or</p>
