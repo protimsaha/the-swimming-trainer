@@ -13,14 +13,16 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <h2 className='text-center my-4'>My Services</h2>
-            <div className='container row my-4'>
+            <div className='container   d-flex justify-content-between'>
                 {
                     twoServices.map(service => <SingleService key={service.id} service={service}></SingleService>)
                 }
             </div>
             <Link className='service-text w-25 btn btn-primary d-block mx-auto my-4' to='services'>See All Services</Link>
             <h3 className='my-4 text-center'>Look What my Customer Says</h3>
-            <Review></Review>
+            <div>
+                <Review></Review>
+            </div>
         </div>
     );
 };

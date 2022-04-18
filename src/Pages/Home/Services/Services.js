@@ -8,7 +8,7 @@ const Services = () => {
     return (
         <div className='container'>
             <h2>Available Services :{services.length} </h2>
-            <div className=' row d-flex justify-content-between '>
+            <div className=' row  d-flex justify-content-between'>
                 {
                     services.map(service => <SingleService
                         key={service.id}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './Review.css'
 
 const Review = () => {
 
@@ -11,10 +12,10 @@ const Review = () => {
     }, [])
 
     return (
-        <div className='container row d-flex '>
+        <div className='review-cont container'>
             {
                 reviews.map(review =>
-                    <div key={review.id} className="card col-md-4 col-sm-12 justify-content-between">
+                    <div key={review.id} className="card review p-2">
                         <img src={review.photo} className="card-img-top img-fluid" alt="..." />
                         <h4>{review.name}</h4>
                         <div className="card-body">

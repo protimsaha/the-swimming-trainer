@@ -10,6 +10,8 @@ import ServiceBooking from './Pages/Home/Services/ServiceBooking/ServiceBooking'
 import NotFound from './Pages/Shared/NotFound/NotFound';
 import Booking from './Pages/Home/Services/Booking/Booking';
 import RequireAuth from './Pages/Auth/RequireAuth';
+import Blogs from './Pages/Blogs/Blogs';
+import About from './Pages/About/About';
 
 function App() {
   return (
@@ -25,7 +27,13 @@ function App() {
             <ServiceBooking></ServiceBooking>
           </RequireAuth>
         }></Route>
-        <Route path='/booking' element={<Booking></Booking>}></Route>
+        <Route path='/booking' element={
+          <RequireAuth>
+            <Booking></Booking>
+          </RequireAuth>
+        }></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='/about' element={<About></About>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

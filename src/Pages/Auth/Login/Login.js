@@ -3,7 +3,10 @@ import { Form } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import auth from '../FirebaseInit/Firebase.init';
-import { useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import Loading from '../../Shared/Loading/Loading';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
@@ -19,10 +22,15 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+
+    const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
+
     const [signInWithGoogle, googleUser, googleError] = useSignInWithGoogle(auth);
     const [signInWithGithub, githubUser, githubError] = useSignInWithGithub(auth);
 
-    console.log(githubUser)
+    if (loading) {
+        return <Loading></Loading>
+    }
 
     if (user || googleUser || githubUser) {
         navigate(from, { replace: true } || '/')
@@ -40,12 +48,6 @@ const Login = () => {
         navigate('/register')
     }
 
-
-
-    // if (LogedinUser) {
-    //     navigate('/')
-    // }
-
     let errorElement;
     if (googleError || githubError) {
         errorElement = error?.message;
@@ -55,7 +57,14 @@ const Login = () => {
         event.preventDefault()
         signInWithEmailAndPassword(email, password)
     }
-
+    const handleResetPassword = () => {
+        if (email) {
+            sendPasswordResetEmail(email)
+            toast('Password reset email sent to the user email.')
+        } else {
+            toast('Enter your email address')
+        }
+    }
 
     return (
         <Form onSubmit={handleUserLogin} className='w-50 mx-auto border p-5 rounded my-5'>
@@ -70,8 +79,13 @@ const Login = () => {
                 <Form.Label>Password</Form.Label>
                 <Form.Control onBlur={passwordBlur} type="password" placeholder="Password" required />
             </Form.Group>
+
             <p className='text-danger'>{errorElement}</p>
+
             <p>New to my website? <span onClick={handleRegister} className='text-success' role={'button'}> Register</span></p>
+
+            <p>Forgote password? <span role={'button'} className='text-warning' onClick={handleResetPassword}>Reset Password</span></p>
+            <ToastContainer />
             <input className='w-50 mx-auto d-block btn btn-primary' value='Login' type="submit" />
             <div className='or my-3'>
                 <div style={{ height: '1px' }} className='bg-primary w-50'></div>

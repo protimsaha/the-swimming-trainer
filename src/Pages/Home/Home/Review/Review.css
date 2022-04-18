@@ -1,0 +1,18 @@
+.review-cont {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+}
+
+@media screen and (max-width:430px) {
+    .review-cont {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.review {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
