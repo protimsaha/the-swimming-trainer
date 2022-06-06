@@ -2,7 +2,6 @@ import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import banner1 from '../../../images/sweeming banner 1.webp'
 import banner2 from '../../../images/banner2.webp'
-import banner3 from '../../../images/banner3.webp'
 import './Banner.css'
 
 const Banner = () => {
@@ -10,8 +9,8 @@ const Banner = () => {
         <Carousel className='banner'>
             <Carousel.Item>
                 <img
-                    className="d-block w-100"
-                    src={banner3}
+                    className="d-block w-100 "
+                    src='https://cdn.britannica.com/01/193601-050-F8F18A9B/Katie-Ledecky-American-lead-way-women-world-2016.jpg'
                     alt="First slide"
                 />
                 <Carousel.Caption>

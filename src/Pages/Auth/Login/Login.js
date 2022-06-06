@@ -23,18 +23,23 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+
     const [sendPasswordResetEmail, sending, resetError] = useSendPasswordResetEmail(auth);
 
-    const [signInWithGoogle, googleUser, googleError] = useSignInWithGoogle(auth);
-    const [signInWithGithub, githubUser, githubError] = useSignInWithGithub(auth);
+    const [signInWithGithub, githubUser, gitLoading, githubError] = useSignInWithGithub(auth);
 
-    if (loading) {
+    const [signInWithGoogle, googleUser, googleError] = useSignInWithGoogle(auth);
+
+    if (githubUser || user || googleUser) {
+        navigate(from, { replace: true })
+    }
+
+
+
+    if (loading || sending || gitLoading) {
         return <Loading></Loading>
     }
 
-    if (user || googleUser || githubUser) {
-        navigate(from, { replace: true } || '/')
-    }
 
     const emailBlur = event => {
         setEmail(event.target.value)
@@ -49,7 +54,7 @@ const Login = () => {
     }
 
     let errorElement;
-    if (error || googleError || githubError) {
+    if (error || googleError || githubError || resetError) {
         errorElement = error?.message;
     }
 
